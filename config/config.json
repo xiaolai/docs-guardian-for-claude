@@ -1,0 +1,17 @@
+{
+  "language": "auto",
+  "framework": "auto",
+  "hookStrictness": "warn",
+  "stalenessThresholdDays": 30,
+  "mappings": [],
+  "excludePatterns": [
+    "node_modules/**",
+    "vendor/**",
+    "dist/**",
+    "build/**",
+    ".git/**",
+    "**/*.test.*",
+    "**/*.spec.*",
+    "**/__tests__/**"
+  ]
+}
