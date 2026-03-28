@@ -6,9 +6,11 @@ argument-hint: ""
 
 Lightweight documentation coverage check. Launches the coverage-scanner agent and relays its output directly.
 
-Use skills:
-- `docs-guardian:standards`
-- `docs-guardian:detection`
+## Reference Skills
+
+Before starting, read these skill files for guidance (use the Read tool, NOT the Skill tool):
+- `skills/docs-guardian/standards/SKILL.md` — severity tags, finding format, metrics
+- `skills/docs-guardian/detection/SKILL.md` — language + framework auto-detection rules
 
 ## Process
 

@@ -6,10 +6,12 @@ argument-hint: "[language] [framework]"
 
 Initialize docs-guardian for the current project by detecting the tech stack and writing configuration.
 
-Use skills:
-- `docs-guardian:detection`
-- `docs-guardian:mapping`
-- `docs-guardian:standards`
+## Reference Skills
+
+Before starting, read these skill files for guidance (use the Read tool, NOT the Skill tool):
+- `skills/docs-guardian/detection/SKILL.md` — language + framework auto-detection rules
+- `skills/docs-guardian/mapping/SKILL.md` — code-to-doc file mapping strategies
+- `skills/docs-guardian/standards/SKILL.md` — severity tags, finding format, metrics
 
 ## Process
 

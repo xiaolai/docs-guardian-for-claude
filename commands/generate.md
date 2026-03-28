@@ -6,10 +6,12 @@ argument-hint: "[file or directory to document]"
 
 Generate documentation for undocumented code by first scanning for coverage gaps, then writing docs in the project's documentation framework format.
 
-Use skills:
-- `docs-guardian:standards`
-- `docs-guardian:detection`
-- `docs-guardian:mapping`
+## Reference Skills
+
+Before starting, read these skill files for guidance (use the Read tool, NOT the Skill tool):
+- `skills/docs-guardian/standards/SKILL.md` — severity tags, finding format, metrics
+- `skills/docs-guardian/detection/SKILL.md` — language + framework auto-detection rules
+- `skills/docs-guardian/mapping/SKILL.md` — code-to-doc file mapping strategies
 
 ## Process
 

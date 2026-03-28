@@ -6,10 +6,14 @@ argument-hint: ""
 
 Run a comprehensive documentation audit by launching 4 specialized agents in parallel, then synthesize their findings into a single actionable report.
 
-Use skills:
-- `docs-guardian:standards`
-- `docs-guardian:detection`
-- `docs-guardian:mapping`
+## Reference Skills
+
+Before starting, read these skill files for guidance on standards, detection, and mapping:
+- `skills/docs-guardian/standards/SKILL.md` — severity tags, finding format, metrics
+- `skills/docs-guardian/detection/SKILL.md` — language + framework auto-detection rules
+- `skills/docs-guardian/mapping/SKILL.md` — code-to-doc file mapping strategies
+
+Use the Read tool to load these files from the plugin install directory. Do NOT use the Skill tool — these are reference skills, not invocable commands.
 
 ## Process
 
@@ -20,8 +24,8 @@ Follow `commands/shared/validate-config.md` to read and validate the config. Sto
 ### Step 2: Resolve Mappings
 
 Before dispatching agents, resolve all code-to-doc mappings upfront:
-1. Use the detection skill to confirm language and framework
-2. Use the mapping skill to build the complete mapping table
+1. Follow the detection skill rules to confirm language and framework
+2. Follow the mapping skill strategies to build the complete mapping table
 3. This pre-computed mapping list is passed to agents to avoid redundant detection
 
 ### Step 3: Launch 4 Agents in Parallel
