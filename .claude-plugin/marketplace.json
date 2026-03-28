@@ -8,13 +8,20 @@
         "repo": "xiaolai/docs-guardian-for-claude"
       },
       "description": "Documentation quality and freshness enforcer — detect staleness, check accuracy, measure coverage, and auto-generate docs across any language and doc framework",
-      "version": "0.1.0",
+      "version": "0.1.2",
       "author": {
         "name": "xiaolai"
       },
       "repository": "https://github.com/xiaolai/docs-guardian-for-claude",
       "license": "MIT",
-      "keywords": ["documentation", "docs", "staleness", "coverage", "quality", "freshness"],
+      "keywords": [
+        "documentation",
+        "docs",
+        "staleness",
+        "coverage",
+        "quality",
+        "freshness"
+      ],
       "category": "developer-tools"
     }
   ]

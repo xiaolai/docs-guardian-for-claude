@@ -1,10 +1,17 @@
 {
   "name": "docs-guardian",
-  "version": "0.1.0",
+  "version": "0.1.2",
   "description": "Documentation quality and freshness enforcer — detect staleness, check accuracy, measure coverage, and auto-generate docs",
   "author": {
     "name": "xiaolai"
   },
   "license": "MIT",
-  "keywords": ["documentation", "docs", "staleness", "coverage", "quality", "freshness"]
+  "keywords": [
+    "documentation",
+    "docs",
+    "staleness",
+    "coverage",
+    "quality",
+    "freshness"
+  ]
 }
