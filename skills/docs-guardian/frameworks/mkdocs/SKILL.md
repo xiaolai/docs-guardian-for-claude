@@ -1,6 +1,6 @@
 ---
 name: fw-mkdocs
-description: MkDocs framework adapter — mkdocs.yml nav parsing, Material theme conventions, and doc generation templates.
+description: "Use when generating or auditing documentation in MkDocs format — covers config, directory structure, frontmatter conventions, and build commands."
 ---
 
 # MkDocs Framework Adapter

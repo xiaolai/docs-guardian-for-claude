@@ -1,6 +1,6 @@
 ---
 name: lang-rust
-description: Rust language adapter — pub item detection, doc comment formats, and crate documentation conventions.
+description: "Use when writing, auditing, or generating documentation for Rust projects — covers docstring conventions, API doc extraction, and Rust-specific patterns."
 ---
 
 # Rust Language Adapter

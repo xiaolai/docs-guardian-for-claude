@@ -1,6 +1,6 @@
 ---
 name: lang-go
-description: Go language adapter — exported identifier detection and godoc comment conventions.
+description: "Use when writing, auditing, or generating documentation for Go projects — covers docstring conventions, API doc extraction, and Go-specific patterns."
 ---
 
 # Go Language Adapter

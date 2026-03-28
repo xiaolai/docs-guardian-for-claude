@@ -1,6 +1,6 @@
 ---
 name: fw-plain-markdown
-description: Plain Markdown framework adapter — convention-based doc layout with standard headings and no build tool.
+description: "Use when generating or auditing documentation in plain Markdown format — covers config, directory structure, frontmatter conventions, and build commands."
 ---
 
 # Plain Markdown Framework Adapter

@@ -1,6 +1,6 @@
 ---
 name: fw-sphinx
-description: Sphinx framework adapter — conf.py parsing, toctree navigation, reStructuredText format, and doc generation templates.
+description: "Use when generating or auditing documentation in Sphinx format — covers config, directory structure, frontmatter conventions, and build commands."
 ---
 
 # Sphinx Framework Adapter

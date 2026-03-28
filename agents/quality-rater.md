@@ -10,6 +10,15 @@ description: Use this agent to rate documentation quality — checks for empty s
   </commentary>
   </example>
 
+  <example>
+  Context: Docs review before a public launch
+  user: "We're publishing our docs site next month — find every TODO, broken link, and stub section so we can fix them before launch"
+  assistant: "I'll run the quality-rater agent across all doc files to surface incomplete sections, broken relative links, and placeholder content before the site goes live."
+  <commentary>
+  Quality-rater is ideal pre-launch: it catches embarrassing placeholders and broken internal links that automated tests would miss.
+  </commentary>
+  </example>
+
 model: haiku
 color: green
 tools: Read, Glob, Grep

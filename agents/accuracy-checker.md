@@ -10,6 +10,15 @@ description: Use this agent for deep analysis of documentation accuracy — read
   </commentary>
   </example>
 
+  <example>
+  Context: Post-migration accuracy audit
+  user: "We just migrated from JavaScript to TypeScript and changed a lot of function signatures — make sure the docs still reflect the real API"
+  assistant: "I'll run the accuracy-checker agent across all TypeScript source files to find every signature mismatch and parameter type discrepancy introduced by the migration."
+  <commentary>
+  After a language migration, type signatures change substantially; the accuracy-checker can systematically compare every exported symbol against its documented counterpart.
+  </commentary>
+  </example>
+
 model: opus
 color: red
 tools: Read, Glob, Grep

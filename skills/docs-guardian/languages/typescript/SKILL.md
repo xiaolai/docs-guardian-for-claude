@@ -1,6 +1,6 @@
 ---
 name: lang-typescript
-description: TypeScript/JavaScript language adapter — export detection, JSDoc/TSDoc parsing, and React component documentation.
+description: "Use when writing, auditing, or generating documentation for TypeScript projects — covers docstring conventions, API doc extraction, and TypeScript-specific patterns."
 ---
 
 # TypeScript Language Adapter

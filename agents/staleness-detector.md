@@ -10,6 +10,15 @@ description: Use this agent to detect stale documentation by comparing git times
   </commentary>
   </example>
 
+  <example>
+  Context: Pre-release documentation review
+  user: "We're cutting a v2.0 release next week — flag any docs that haven't been touched since the last major refactor in January"
+  assistant: "I'll run the staleness-detector agent with a tight threshold to surface every doc file that hasn't been updated since January."
+  <commentary>
+  Configuring a threshold against a known refactor date lets the agent pinpoint exactly which docs need review before a release.
+  </commentary>
+  </example>
+
 model: haiku
 color: yellow
 tools: Read, Bash, Glob, Grep

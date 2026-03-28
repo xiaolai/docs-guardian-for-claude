@@ -1,6 +1,6 @@
 ---
 name: lang-python
-description: Python language adapter — public API surface detection, docstring formats, and documentation conventions.
+description: "Use when writing, auditing, or generating documentation for Python projects — covers docstring conventions, API doc extraction, and Python-specific patterns."
 ---
 
 # Python Language Adapter

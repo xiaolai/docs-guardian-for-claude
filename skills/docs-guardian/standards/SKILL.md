@@ -1,6 +1,6 @@
 ---
 name: standards
-description: Shared output format, severity tags, and finding structure used by all docs-guardian agents.
+description: "Use when evaluating documentation quality — check completeness, accuracy, freshness, and adherence to project documentation standards."
 ---
 
 # Documentation Guardian Standards

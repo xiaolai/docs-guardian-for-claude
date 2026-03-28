@@ -10,6 +10,15 @@ description: Use this agent to find undocumented public APIs and calculate docum
   </commentary>
   </example>
 
+  <example>
+  Context: Onboarding a new open-source contributor
+  user: "A new contributor wants to know which public functions lack any documentation so they can help fill in the gaps"
+  assistant: "I'll run the coverage-scanner agent to enumerate every undocumented public symbol and produce a prioritized list they can pick from."
+  <commentary>
+  Coverage-scanner output is a ready-made task list for contributors — it shows exactly which symbols need docs and ranks them by severity.
+  </commentary>
+  </example>
+
 model: sonnet
 color: cyan
 tools: Read, Glob, Grep

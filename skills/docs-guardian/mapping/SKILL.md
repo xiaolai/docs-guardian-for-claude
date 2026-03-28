@@ -1,6 +1,6 @@
 ---
 name: mapping
-description: Strategies for mapping source code files to their corresponding documentation files.
+description: "Use when mapping source code files to their documentation counterparts — find which docs cover which code, detect gaps, and resolve doc-to-code relationships."
 ---
 
 # Code-to-Doc Mapping

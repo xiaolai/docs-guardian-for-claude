@@ -1,6 +1,6 @@
 ---
 name: detection
-description: Auto-detect project language and documentation framework from filesystem markers.
+description: "Use when detecting a project's programming language and documentation framework from filesystem markers — package.json, Cargo.toml, pyproject.toml, mkdocs.yml, etc."
 ---
 
 # Stack Detection

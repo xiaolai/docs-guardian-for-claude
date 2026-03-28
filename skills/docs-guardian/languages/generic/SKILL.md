@@ -1,6 +1,6 @@
 ---
 name: lang-generic
-description: Fallback language adapter — heuristic-based public API detection for unknown or unsupported languages.
+description: "Use when writing, auditing, or generating documentation for projects in unsupported languages — covers docstring conventions, API doc extraction, and generic heuristic patterns."
 ---
 
 # Generic Language Adapter

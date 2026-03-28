@@ -10,6 +10,15 @@ description: Use this agent to generate or update documentation for undocumented
   </commentary>
   </example>
 
+  <example>
+  Context: Updating stale documentation after a refactor
+  user: "The auth module was completely rewritten last sprint — update its docs to match the new API"
+  assistant: "I'll use the doc-writer agent to read the new auth module source, diff it against the existing docs, and update every section that no longer reflects the current implementation."
+  <commentary>
+  Doc-writer handles both creation and targeted updates — when a module is rewritten it can surgically refresh only the sections that have drifted.
+  </commentary>
+  </example>
+
 model: opus
 color: magenta
 tools: Read, Write, Edit, Glob, Grep

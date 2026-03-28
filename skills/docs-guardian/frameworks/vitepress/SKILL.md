@@ -1,6 +1,6 @@
 ---
 name: fw-vitepress
-description: VitePress framework adapter — sidebar config parsing, Vue component awareness, and doc generation templates.
+description: "Use when generating or auditing documentation in VitePress format — covers config, directory structure, frontmatter conventions, and build commands."
 ---
 
 # VitePress Framework Adapter

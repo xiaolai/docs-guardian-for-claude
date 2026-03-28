@@ -1,6 +1,6 @@
 ---
 name: fw-docusaurus
-description: Docusaurus framework adapter — config and sidebar parsing, MDX awareness, and doc generation templates.
+description: "Use when generating or auditing documentation in Docusaurus format — covers config, directory structure, frontmatter conventions, and build commands."
 ---
 
 # Docusaurus Framework Adapter
