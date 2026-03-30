@@ -65,7 +65,16 @@ mkdir -p .claude/docs-guardian
 
 Write the config file using the Write tool.
 
-### Step 5: Confirm
+### Step 5: Update .gitignore
+
+Append the following to `.gitignore` (skip lines already present):
+
+```
+# docs-guardian generated artifacts
+.claude/docs-guardian/audit-report.md
+```
+
+### Step 6: Confirm
 
 Print the final configuration and suggest next steps:
 
