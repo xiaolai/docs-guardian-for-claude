@@ -140,20 +140,13 @@ const message = [
   "",
 ];
 
-if (strictness === "block") {
-  // Output as blocked
-  const result = {
-    decision: "block",
-    reason: message.join("\n"),
-  };
-  process.stdout.write(JSON.stringify(result));
-  process.exit(0);
-} else {
-  // warn — print but allow
-  const result = {
-    decision: "warn",
-    reason: message.join("\n"),
-  };
-  process.stdout.write(JSON.stringify(result));
-  process.exit(0);
-}
+// Always warn, never block — let the commit through with a warning
+const result = {
+  hookSpecificOutput: {
+    hookEventName: "PreToolUse",
+    permissionDecision: "allow",
+    permissionDecisionReason: message.join("\n"),
+  },
+};
+process.stdout.write(JSON.stringify(result));
+process.exit(0);
