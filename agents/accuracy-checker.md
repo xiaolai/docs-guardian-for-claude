@@ -1,4 +1,5 @@
 ---
+name: accuracy-checker
 description: Use this agent for deep analysis of documentation accuracy — reads both code and docs to find mismatches in API signatures, parameter descriptions, return values, examples, and behavioral claims.
 
   <example>

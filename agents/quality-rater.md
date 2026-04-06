@@ -1,4 +1,5 @@
 ---
+name: quality-rater
 description: Use this agent to rate documentation quality — checks for empty sections, TODO markers, broken links, missing examples, inconsistent formatting, and other quality issues.
 
   <example>

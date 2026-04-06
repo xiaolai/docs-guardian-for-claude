@@ -1,4 +1,5 @@
 ---
+name: coverage-scanner
 description: Use this agent to find undocumented public APIs and calculate documentation coverage percentage. Works standalone via /coverage or as part of a full audit.
 
   <example>

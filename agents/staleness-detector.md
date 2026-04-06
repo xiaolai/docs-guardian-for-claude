@@ -1,4 +1,5 @@
 ---
+name: staleness-detector
 description: Use this agent to detect stale documentation by comparing git timestamps between source files and their corresponding doc files. Runs staleness-check.sh for mechanical git work, then interprets the results.
 
   <example>

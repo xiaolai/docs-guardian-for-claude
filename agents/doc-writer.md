@@ -1,4 +1,5 @@
 ---
+name: doc-writer
 description: Use this agent to generate or update documentation for undocumented or stale code. Reads source code, understands behavior, and writes docs in the project's documentation framework format.
 
   <example>
