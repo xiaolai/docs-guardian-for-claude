@@ -1,4 +1,5 @@
 ---
+name: generate
 description: "Auto-generate missing documentation — scan for coverage gaps, then write docs in the project's framework format"
 allowed-tools: Read, Write, Edit, Glob, Grep, Bash, Task, AskUserQuestion
 argument-hint: "[file or directory to document]"

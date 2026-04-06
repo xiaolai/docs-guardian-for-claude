@@ -1,4 +1,5 @@
 ---
+name: coverage
 description: "Check documentation coverage — find undocumented public APIs and report coverage percentage"
 allowed-tools: Read, Glob, Grep, Bash, Task
 argument-hint: ""

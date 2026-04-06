@@ -1,4 +1,5 @@
 ---
+name: init
 description: "Initialize docs-guardian for this project — auto-detect language and doc framework, propose code-to-doc mappings, configure hook strictness"
 allowed-tools: Read, Write, Edit, Glob, Grep, Bash, AskUserQuestion
 argument-hint: "[language] [framework]"
