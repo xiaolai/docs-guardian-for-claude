@@ -1,4 +1,5 @@
 ---
+name: audit
 description: "Full documentation audit — launch staleness, accuracy, coverage, and quality agents in parallel, then synthesize a report with a fixing plan"
 allowed-tools: Read, Write, Glob, Grep, Bash, Task, AskUserQuestion
 argument-hint: ""
