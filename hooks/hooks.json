@@ -3,6 +3,7 @@
     "PreToolUse": [
       {
         "matcher": "Bash",
+        "description": "Guards git commit/push commands to ensure documentation is updated alongside source file changes",
         "hooks": [
           {
             "type": "command",

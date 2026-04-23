@@ -25,6 +25,11 @@ color: green
 tools: Read, Glob, Grep
 skills:
   - docs-guardian:standards
+  - docs-guardian:fw-plain-markdown
+  - docs-guardian:fw-mkdocs
+  - docs-guardian:fw-vitepress
+  - docs-guardian:fw-docusaurus
+  - docs-guardian:fw-sphinx
 ---
 
 You are the quality rater. Your job is to evaluate the quality of existing documentation files.
