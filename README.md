@@ -137,4 +137,4 @@ When `hookStrictness` is `warn` or `block`, a PreToolUse hook intercepts `git co
 
 ## License
 
-MIT
+ISC
