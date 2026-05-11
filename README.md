@@ -1,5 +1,7 @@
 # docs-guardian
 
+[![Validated by NLPM](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/xiaolai/docs-guardian-for-claude/main/nlpm-badge.json)](https://github.com/xiaolai/docs-guardian-for-claude/blob/main/nlpm-badge.json)
+
 Documentation quality and freshness enforcer — detect staleness, check accuracy, measure coverage, and auto-generate docs across any language and doc framework.
 
 ## What it does
