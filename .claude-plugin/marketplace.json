@@ -1,5 +1,11 @@
 {
   "name": "xiaolai",
+  "owner": {
+    "name": "xiaolai"
+  },
+  "metadata": {
+    "description": "docs-guardian — documentation quality and freshness enforcer, by xiaolai"
+  },
   "plugins": [
     {
       "name": "docs-guardian",
