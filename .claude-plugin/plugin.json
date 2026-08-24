@@ -1,6 +1,6 @@
 {
   "name": "docs-guardian",
-  "version": "0.1.8",
+  "version": "0.1.9",
   "description": "Documentation quality and freshness enforcer \u2014 detect staleness, check accuracy, measure coverage, and auto-generate docs",
   "author": {
     "name": "xiaolai"
