@@ -1,6 +1,7 @@
 ---
 name: coverage-scanner
-description: Use this agent to find undocumented public APIs and calculate documentation coverage percentage. Works standalone via /coverage or as part of a full audit.
+description: |
+  Use this agent to find undocumented public APIs and calculate documentation coverage percentage. Works standalone via /coverage or as part of a full audit.
 
   <example>
   Context: Checking how much of the API is documented
@@ -19,7 +20,6 @@ description: Use this agent to find undocumented public APIs and calculate docum
   Coverage-scanner output is a ready-made task list for contributors — it shows exactly which symbols need docs and ranks them by severity.
   </commentary>
   </example>
-
 model: sonnet
 color: cyan
 tools: Read, Glob, Grep

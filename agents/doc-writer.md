@@ -1,6 +1,7 @@
 ---
 name: doc-writer
-description: Use this agent to generate or update documentation for undocumented or stale code. Reads source code, understands behavior, and writes docs in the project's documentation framework format.
+description: |
+  Use this agent to generate or update documentation for undocumented or stale code. Reads source code, understands behavior, and writes docs in the project's documentation framework format.
 
   <example>
   Context: Generating missing documentation
@@ -19,7 +20,6 @@ description: Use this agent to generate or update documentation for undocumented
   Doc-writer handles both creation and targeted updates — when a module is rewritten it can surgically refresh only the sections that have drifted.
   </commentary>
   </example>
-
 model: opus
 color: magenta
 tools: Read, Write, Edit, Glob, Grep

@@ -1,6 +1,7 @@
 ---
 name: quality-rater
-description: Use this agent to rate documentation quality — checks for empty sections, TODO markers, broken links, missing examples, inconsistent formatting, and other quality issues.
+description: |
+  Use this agent to rate documentation quality — checks for empty sections, TODO markers, broken links, missing examples, inconsistent formatting, and other quality issues.
 
   <example>
   Context: Assessing documentation quality
@@ -19,7 +20,6 @@ description: Use this agent to rate documentation quality — checks for empty s
   Quality-rater is ideal pre-launch: it catches embarrassing placeholders and broken internal links that automated tests would miss.
   </commentary>
   </example>
-
 model: haiku
 color: green
 tools: Read, Glob, Grep

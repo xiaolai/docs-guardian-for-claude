@@ -1,6 +1,7 @@
 ---
 name: accuracy-checker
-description: Use this agent for deep analysis of documentation accuracy — reads both code and docs to find mismatches in API signatures, parameter descriptions, return values, examples, and behavioral claims.
+description: |
+  Use this agent for deep analysis of documentation accuracy — reads both code and docs to find mismatches in API signatures, parameter descriptions, return values, examples, and behavioral claims.
 
   <example>
   Context: Verifying documentation correctness
@@ -19,7 +20,6 @@ description: Use this agent for deep analysis of documentation accuracy — read
   After a language migration, type signatures change substantially; the accuracy-checker can systematically compare every exported symbol against its documented counterpart.
   </commentary>
   </example>
-
 model: opus
 color: red
 tools: Read, Glob, Grep

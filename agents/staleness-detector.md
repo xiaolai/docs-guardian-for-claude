@@ -1,6 +1,7 @@
 ---
 name: staleness-detector
-description: Use this agent to detect stale documentation by comparing git timestamps between source files and their corresponding doc files. Runs staleness-check.sh for mechanical git work, then interprets the results.
+description: |
+  Use this agent to detect stale documentation by comparing git timestamps between source files and their corresponding doc files. Runs staleness-check.sh for mechanical git work, then interprets the results.
 
   <example>
   Context: Auditing documentation freshness
@@ -19,7 +20,6 @@ description: Use this agent to detect stale documentation by comparing git times
   Configuring a threshold against a known refactor date lets the agent pinpoint exactly which docs need review before a release.
   </commentary>
   </example>
-
 model: haiku
 color: yellow
 tools: Read, Bash, Glob, Grep

@@ -1,13 +1,13 @@
 {
+  "description": "Guards git commit/push commands so documentation is updated alongside source file changes.",
   "hooks": {
     "PreToolUse": [
       {
         "matcher": "Bash",
-        "description": "Guards git commit/push commands to ensure documentation is updated alongside source file changes",
         "hooks": [
           {
             "type": "command",
-            "command": "node ${CLAUDE_PLUGIN_ROOT}/scripts/docs-guardian/commit-guard.js"
+            "command": "node \"${CLAUDE_PLUGIN_ROOT}/scripts/docs-guardian/commit-guard.js\""
           }
         ]
       }
