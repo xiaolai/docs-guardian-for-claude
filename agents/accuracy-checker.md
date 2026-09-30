@@ -1,7 +1,7 @@
 ---
 name: accuracy-checker
 description: |
-  Use this agent for deep analysis of documentation accuracy — reads both code and docs to find mismatches in API signatures, parameter descriptions, return values, examples, and behavioral claims.
+  Use this agent for deep analysis of documentation accuracy — reads both code and docs to find mismatches in API signatures, parameter descriptions, return values, examples, and behavioral claims, including after a migration or refactor that changed function signatures. Not for measuring how much of the API is documented (use coverage-scanner), for git-timestamp staleness (use staleness-detector), or for writing the corrected docs (use doc-writer).
 
   <example>
   Context: Verifying documentation correctness
@@ -9,15 +9,6 @@ description: |
   assistant: "I'll use the accuracy-checker agent to compare code against documentation for mismatches."
   <commentary>
   Accuracy checking requires reading both code and docs deeply — this is the most thorough agent.
-  </commentary>
-  </example>
-
-  <example>
-  Context: Post-migration accuracy audit
-  user: "We just migrated from JavaScript to TypeScript and changed a lot of function signatures — make sure the docs still reflect the real API"
-  assistant: "I'll run the accuracy-checker agent across all TypeScript source files to find every signature mismatch and parameter type discrepancy introduced by the migration."
-  <commentary>
-  After a language migration, type signatures change substantially; the accuracy-checker can systematically compare every exported symbol against its documented counterpart.
   </commentary>
   </example>
 model: opus
@@ -54,7 +45,7 @@ Given code-to-doc mappings, read both the source code and the corresponding docu
 ### 2. Behavioral Claims
 
 - Does the doc describe what the function actually does?
-- Are edge cases documented correctly?
+- Do documented edge cases (empty, null, zero, boundary inputs) match what the code does for those inputs?
 - Are error conditions described accurately?
 - Do "throws/raises" sections match actual exceptions?
 
@@ -73,7 +64,7 @@ Given code-to-doc mappings, read both the source code and the corresponding docu
 ### 5. Cross-references
 
 - Do links to other docs/functions reference existing targets?
-- Are "see also" references still relevant?
+- Do "see also" references point at a symbol or file that still exists and still covers the topic of the referring section?
 
 ## Process
 

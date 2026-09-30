@@ -1,7 +1,7 @@
 ---
 name: doc-writer
 description: |
-  Use this agent to generate or update documentation for undocumented or stale code. Reads source code, understands behavior, and writes docs in the project's documentation framework format.
+  Use this agent to generate or update documentation for undocumented or stale code, including refreshing a module's docs after it was rewritten. Reads source code, understands behavior, and writes docs in the project's documentation framework format. Not for auditing docs without changing them; the other docs-guardian agents analyze, this one writes.
 
   <example>
   Context: Generating missing documentation
@@ -11,17 +11,8 @@ description: |
   Doc-writer is the generative agent — it creates content, unlike the other agents which analyze.
   </commentary>
   </example>
-
-  <example>
-  Context: Updating stale documentation after a refactor
-  user: "The auth module was completely rewritten last sprint — update its docs to match the new API"
-  assistant: "I'll use the doc-writer agent to read the new auth module source, diff it against the existing docs, and update every section that no longer reflects the current implementation."
-  <commentary>
-  Doc-writer handles both creation and targeted updates — when a module is rewritten it can surgically refresh only the sections that have drifted.
-  </commentary>
-  </example>
 model: opus
-color: magenta
+color: purple
 tools: Read, Write, Edit, Glob, Grep
 skills:
   - docs-guardian:standards

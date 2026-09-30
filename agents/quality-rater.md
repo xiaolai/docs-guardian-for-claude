@@ -1,7 +1,7 @@
 ---
 name: quality-rater
 description: |
-  Use this agent to rate documentation quality — checks for empty sections, TODO markers, broken links, missing examples, inconsistent formatting, and other quality issues.
+  Use this agent to rate documentation quality — checks for empty sections, TODO markers, broken links, missing examples, inconsistent formatting, and other quality issues, for example before publishing a docs site. Not for accuracy or coverage problems (use accuracy-checker or coverage-scanner), and it does not check external links.
 
   <example>
   Context: Assessing documentation quality
@@ -9,15 +9,6 @@ description: |
   assistant: "I'll use the quality-rater agent to check for quality issues like empty sections and missing examples."
   <commentary>
   Quality rating catches issues that aren't about accuracy or coverage but about polish and usability.
-  </commentary>
-  </example>
-
-  <example>
-  Context: Docs review before a public launch
-  user: "We're publishing our docs site next month — find every TODO, broken link, and stub section so we can fix them before launch"
-  assistant: "I'll run the quality-rater agent across all doc files to surface incomplete sections, broken relative links, and placeholder content before the site goes live."
-  <commentary>
-  Quality-rater is ideal pre-launch: it catches embarrassing placeholders and broken internal links that automated tests would miss.
   </commentary>
   </example>
 model: haiku
