@@ -127,7 +127,7 @@ After `/docs-guardian:init`, config lives at `.claude/docs-guardian/config.json`
 
 When `hookStrictness` is `warn` or `block`, a PreToolUse hook intercepts `git commit` and `git push` commands. If staged files include code changes but no documentation changes, the hook:
 
-- **warn**: prints a reminder, allows the commit
+- **warn**: shows a reminder (to you and to the model) and leaves the decision to your normal permission rules — it never pre-approves the command
 - **block**: prevents the commit until docs are updated
 - **off**: no checks
 

@@ -129,24 +129,40 @@ if (stagedDocFiles.length > 0) {
 }
 
 // Code files changed but no doc files changed
+const known = strictness === "warn" || strictness === "block";
 const message = [
-  "",
   "[docs-guardian] Code files changed without documentation updates:",
   "",
   ...stagedCodeFiles.map((f) => `  - ${f}`),
   "",
-  "Consider updating the corresponding documentation.",
-  `Hook strictness: ${strictness}`,
-  "",
-];
+  strictness === "block"
+    ? "Update the corresponding documentation and stage it, or set hookStrictness to \"warn\" in .claude/docs-guardian/config.json."
+    : "Consider updating the corresponding documentation.",
+  known
+    ? `Hook strictness: ${strictness}`
+    : `Hook strictness: unknown hookStrictness "${strictness}" (expected off, warn or block) — treated as warn.`,
+].join("\n");
 
-// Always warn, never block — let the commit through with a warning
-const result = {
-  hookSpecificOutput: {
-    hookEventName: "PreToolUse",
-    permissionDecision: "allow",
-    permissionDecisionReason: message.join("\n"),
-  },
-};
+// block: deny, and the model sees the reason. warn (and any unknown value):
+// never emit permissionDecision "allow" — in Claude Code that bypasses the
+// user's permission rules, so a warning would silently pre-approve git commit
+// and push. Emit no decision, so the normal permission flow runs; the user sees
+// systemMessage and the model sees additionalContext.
+const result =
+  strictness === "block"
+    ? {
+        hookSpecificOutput: {
+          hookEventName: "PreToolUse",
+          permissionDecision: "deny",
+          permissionDecisionReason: message,
+        },
+      }
+    : {
+        systemMessage: message,
+        hookSpecificOutput: {
+          hookEventName: "PreToolUse",
+          additionalContext: message,
+        },
+      };
 process.stdout.write(JSON.stringify(result));
 process.exit(0);

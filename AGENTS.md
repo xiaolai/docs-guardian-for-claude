@@ -68,7 +68,9 @@ Per-project config lives at `.claude/docs-guardian/config.json`. The template is
 
 ### Hook script
 
-`commit-guard.js` reads hook input from stdin (JSON), checks if the Bash command is a git commit/push, and verifies that staged code files have corresponding doc file changes. Respects `hookStrictness` from config (`off`/`warn`/`block`).
+`commit-guard.js` reads hook input from stdin (JSON), checks if the Bash command is a git commit/push, and verifies that staged code files have corresponding doc file changes. Respects `hookStrictness` from config (`off`/`warn`/`block`). `block` denies the command; `warn` (and any unknown value) emits `systemMessage` + `additionalContext` with **no** `permissionDecision`. Never answer a warning with `permissionDecision: "allow"`: in Claude Code that bypasses the user's permission rules, so a reminder would silently pre-approve `git commit` and `git push`.
+
+Tests: `node --test scripts/docs-guardian/commit-guard.test.js`. Name the file — a bare `node --test scripts/` treats the directory as a test file and fails.
 
 ### Adding new languages
 
