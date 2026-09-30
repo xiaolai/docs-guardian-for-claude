@@ -22,7 +22,7 @@ description: |
   </example>
 model: haiku
 color: yellow
-tools: Read, Bash, Glob, Grep
+tools: Read, Bash
 skills:
   - docs-guardian:standards
   - docs-guardian:mapping
@@ -40,7 +40,7 @@ Given a set of code-to-doc mappings, determine which doc files are **stale** —
 
 2. **Run staleness check**: Execute the staleness-check.sh script:
    ```bash
-   bash ${CLAUDE_PLUGIN_ROOT}/scripts/docs-guardian/staleness-check.sh
+   bash "${CLAUDE_PLUGIN_ROOT}/scripts/docs-guardian/staleness-check.sh"
    ```
    This outputs TSV with columns: `source_file`, `doc_file`, `source_last_modified`, `doc_last_modified`, `days_behind`.
 

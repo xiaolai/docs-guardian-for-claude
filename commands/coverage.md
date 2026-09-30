@@ -10,14 +10,14 @@ Lightweight documentation coverage check. Launches the coverage-scanner agent an
 ## Reference Skills
 
 Before starting, read these skill files for guidance (use the Read tool, NOT the Skill tool):
-- `skills/docs-guardian/standards/SKILL.md` — severity tags, finding format, metrics
-- `skills/docs-guardian/detection/SKILL.md` — language + framework auto-detection rules
+- `${CLAUDE_PLUGIN_ROOT}/skills/docs-guardian/standards/SKILL.md` — severity tags, finding format, metrics
+- `${CLAUDE_PLUGIN_ROOT}/skills/docs-guardian/detection/SKILL.md` — language + framework auto-detection rules
 
 ## Process
 
 ### Step 1: Validate Config
 
-Follow `commands/shared/validate-config.md` to read and validate the config. Stop if config is missing or invalid.
+Follow `${CLAUDE_PLUGIN_ROOT}/commands/shared/validate-config.md` to read and validate the config. Stop if config is missing or invalid.
 
 ### Step 2: Run Coverage Scanner
 

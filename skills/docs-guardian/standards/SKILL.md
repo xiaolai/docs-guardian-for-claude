@@ -1,6 +1,7 @@
 ---
 name: standards
 description: "Use when evaluating documentation quality — check completeness, accuracy, freshness, and adherence to project documentation standards."
+user-invocable: false
 ---
 
 # Documentation Guardian Standards
@@ -73,3 +74,7 @@ Quality is rated 0–100 based on:
 | Freshness | 20% | No stale docs beyond threshold |
 | Readability | 10% | Clear language, good structure |
 | Examples | 10% | Working code examples present |
+
+## Scope
+
+Covers severity tags, the finding format and documentation quality metrics shared by every docs-guardian agent and command. For code-to-doc mapping see `docs-guardian:mapping`; for language- and framework-specific conventions see the `docs-guardian:lang-*` and `docs-guardian:fw-*` skills.

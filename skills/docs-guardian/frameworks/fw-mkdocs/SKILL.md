@@ -1,6 +1,7 @@
 ---
 name: fw-mkdocs
-description: "Use when generating or auditing documentation in MkDocs format — covers config, directory structure, frontmatter conventions, and build commands."
+description: "Use when generating or auditing documentation in MkDocs format — covers detection, config parsing, the doc root, code-to-doc mapping, and the document template."
+user-invocable: false
 ---
 
 # MkDocs Framework Adapter
@@ -91,3 +92,7 @@ If using Material theme, docs may include:
 - `{{ var }}` Jinja template variables (from `mkdocs-macros-plugin`)
 
 These are valid MkDocs content — do not flag as quality issues.
+
+## Scope
+
+Covers MkDocs-specific config, layout, frontmatter and build conventions only. `docs-guardian:detection` decides whether this skill applies; `docs-guardian:mapping` resolves source-to-doc paths; the other frameworks are `docs-guardian:fw-docusaurus`, `docs-guardian:fw-plain-markdown`, `docs-guardian:fw-sphinx`, `docs-guardian:fw-vitepress`.

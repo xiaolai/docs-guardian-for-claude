@@ -10,9 +10,9 @@ Initialize docs-guardian for the current project by detecting the tech stack and
 ## Reference Skills
 
 Before starting, read these skill files for guidance (use the Read tool, NOT the Skill tool):
-- `skills/docs-guardian/detection/SKILL.md` — language + framework auto-detection rules
-- `skills/docs-guardian/mapping/SKILL.md` — code-to-doc file mapping strategies
-- `skills/docs-guardian/standards/SKILL.md` — severity tags, finding format, metrics
+- `${CLAUDE_PLUGIN_ROOT}/skills/docs-guardian/detection/SKILL.md` — language + framework auto-detection rules
+- `${CLAUDE_PLUGIN_ROOT}/skills/docs-guardian/mapping/SKILL.md` — code-to-doc file mapping strategies
+- `${CLAUDE_PLUGIN_ROOT}/skills/docs-guardian/standards/SKILL.md` — severity tags, finding format, metrics
 
 ## Process
 
@@ -23,6 +23,8 @@ Use the detection skill to identify:
 - **Framework**: Scan for doc framework configs (mkdocs.yml, .vitepress/, docusaurus.config.js, etc.)
 
 If `$ARGUMENTS` contains explicit language or framework names, use those instead of auto-detection.
+
+If `$ARGUMENTS` names a language that is not in the detection skill's Language Detection table, or a framework that is not in its Framework Detection table, respond "Unsupported language or framework: {name}. Supported languages: Rust, Go, Python, TypeScript, JavaScript, C#, Java/Kotlin, Generic. Supported frameworks: MkDocs, VitePress, Docusaurus, Sphinx, Plain Markdown." and STOP. Do not fall back to auto-detection silently.
 
 Report what was detected:
 ```
@@ -53,6 +55,8 @@ Also ask about staleness threshold (default: 30 days).
 
 ### Step 4: Write Config
 
+If `.claude/docs-guardian/config.json` already exists, use AskUserQuestion to ask whether to overwrite it, showing its current `language`, `framework` and `hookStrictness`. If the user declines, respond "Kept existing config: .claude/docs-guardian/config.json" and STOP without writing anything.
+
 Create `.claude/docs-guardian/config.json` with:
 - Detected or user-specified language and framework
 - Hook strictness preference
@@ -66,6 +70,8 @@ mkdir -p .claude/docs-guardian
 
 Write the config file using the Write tool.
 
+If `mkdir` or the write fails, show the error verbatim, respond "Failed to write .claude/docs-guardian/config.json", and STOP. Do not continue to Step 5.
+
 ### Step 5: Update .gitignore
 
 Append the following to `.gitignore` (skip lines already present):
@@ -74,6 +80,8 @@ Append the following to `.gitignore` (skip lines already present):
 # docs-guardian generated artifacts
 .claude/docs-guardian/audit-report.md
 ```
+
+If the `.gitignore` write fails, show the error verbatim and tell the user to add the line by hand. The config is already written, so continue to Step 6 but list the `.gitignore` failure in the confirmation output.
 
 ### Step 6: Confirm
 

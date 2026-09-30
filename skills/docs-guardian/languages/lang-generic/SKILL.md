@@ -1,6 +1,7 @@
 ---
 name: lang-generic
 description: "Use when writing, auditing, or generating documentation for projects in unsupported languages — covers docstring conventions, API doc extraction, and generic heuristic patterns."
+user-invocable: false
 ---
 
 # Generic Language Adapter
@@ -67,3 +68,7 @@ When using the generic adapter, the agent should:
 
 Source files: all files not matching known binary/config extensions
 Exclude: common non-source directories (`node_modules/`, `vendor/`, `dist/`, `.git/`)
+
+## Scope
+
+Fallback only, for languages without a dedicated adapter. The specific adapters are `docs-guardian:lang-typescript`, `docs-guardian:lang-python`, `docs-guardian:lang-go` and `docs-guardian:lang-rust`; `docs-guardian:detection` selects between them.

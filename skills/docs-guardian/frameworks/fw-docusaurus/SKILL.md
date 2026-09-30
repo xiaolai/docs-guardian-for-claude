@@ -1,6 +1,7 @@
 ---
 name: fw-docusaurus
-description: "Use when generating or auditing documentation in Docusaurus format — covers config, directory structure, frontmatter conventions, and build commands."
+description: "Use when generating or auditing documentation in Docusaurus format — covers detection, config parsing, the doc root, code-to-doc mapping, and the document template."
+user-invocable: false
 ---
 
 # Docusaurus Framework Adapter
@@ -109,3 +110,7 @@ Valid Docusaurus content — do not flag as quality issues:
 - `import` statements at the top of `.mdx` files
 - YAML frontmatter with Docusaurus fields (`id`, `sidebar_label`, `sidebar_position`, `slug`)
 - `{@link}` and `{@see}` JSDoc references in MDX
+
+## Scope
+
+Covers Docusaurus-specific config, layout, frontmatter and build conventions only. `docs-guardian:detection` decides whether this skill applies; `docs-guardian:mapping` resolves source-to-doc paths; the other frameworks are `docs-guardian:fw-mkdocs`, `docs-guardian:fw-plain-markdown`, `docs-guardian:fw-sphinx`, `docs-guardian:fw-vitepress`.

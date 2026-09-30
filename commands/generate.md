@@ -10,15 +10,15 @@ Generate documentation for undocumented code by first scanning for coverage gaps
 ## Reference Skills
 
 Before starting, read these skill files for guidance (use the Read tool, NOT the Skill tool):
-- `skills/docs-guardian/standards/SKILL.md` — severity tags, finding format, metrics
-- `skills/docs-guardian/detection/SKILL.md` — language + framework auto-detection rules
-- `skills/docs-guardian/mapping/SKILL.md` — code-to-doc file mapping strategies
+- `${CLAUDE_PLUGIN_ROOT}/skills/docs-guardian/standards/SKILL.md` — severity tags, finding format, metrics
+- `${CLAUDE_PLUGIN_ROOT}/skills/docs-guardian/detection/SKILL.md` — language + framework auto-detection rules
+- `${CLAUDE_PLUGIN_ROOT}/skills/docs-guardian/mapping/SKILL.md` — code-to-doc file mapping strategies
 
 ## Process
 
 ### Step 1: Validate Config
 
-Follow `commands/shared/validate-config.md` to read and validate the config. Stop if config is missing or invalid.
+Follow `${CLAUDE_PLUGIN_ROOT}/commands/shared/validate-config.md` to read and validate the config. Stop if config is missing or invalid.
 
 ### Step 2: Determine Scope
 
@@ -58,7 +58,7 @@ If the coverage-scanner found zero undocumented symbols, output: "All public sym
 Launch the **doc-writer** agent using the Task tool with:
 - The list of files/symbols to document
 - The detected language and framework
-- Instructions to use the appropriate framework template
+- Instructions to use the template for the `framework` value in the loaded config
 
 The doc-writer will:
 1. Read each source file

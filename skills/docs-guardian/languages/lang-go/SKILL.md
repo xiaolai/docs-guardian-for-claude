@@ -1,6 +1,7 @@
 ---
 name: lang-go
 description: "Use when writing, auditing, or generating documentation for Go projects — covers docstring conventions, API doc extraction, and Go-specific patterns."
+user-invocable: false
 ---
 
 # Go Language Adapter
@@ -76,3 +77,7 @@ A Go symbol is **fully documented** when:
 
 Source files: `**/*.go`
 Exclude: `vendor/`, `*_test.go`, files with `// Code generated` header
+
+## Scope
+
+Covers Go doc-comment conventions and API extraction only. `docs-guardian:detection` selects this adapter; `docs-guardian:lang-generic` is the fallback for languages without an adapter; output format per doc framework is in the `docs-guardian:fw-*` skills.

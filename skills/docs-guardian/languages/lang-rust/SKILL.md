@@ -1,6 +1,7 @@
 ---
 name: lang-rust
 description: "Use when writing, auditing, or generating documentation for Rust projects — covers docstring conventions, API doc extraction, and Rust-specific patterns."
+user-invocable: false
 ---
 
 # Rust Language Adapter
@@ -96,3 +97,7 @@ A Rust symbol is **fully documented** when:
 
 Source files: `**/*.rs`
 Exclude: `target/`, `**/tests.rs`, `**/test_*.rs`, files in `#[cfg(test)]` modules
+
+## Scope
+
+Covers Rust doc-comment conventions and API extraction only. `docs-guardian:detection` selects this adapter; `docs-guardian:lang-generic` is the fallback for languages without an adapter; output format per doc framework is in the `docs-guardian:fw-*` skills.

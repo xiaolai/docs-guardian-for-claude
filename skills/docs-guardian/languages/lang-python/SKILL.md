@@ -1,6 +1,7 @@
 ---
 name: lang-python
 description: "Use when writing, auditing, or generating documentation for Python projects — covers docstring conventions, API doc extraction, and Python-specific patterns."
+user-invocable: false
 ---
 
 # Python Language Adapter
@@ -93,3 +94,7 @@ A Python symbol is **fully documented** when:
 ## File Patterns
 
 Source files: `**/*.py` (exclude `__pycache__`, `*.pyc`, test files)
+
+## Scope
+
+Covers Python doc-comment conventions and API extraction only. `docs-guardian:detection` selects this adapter; `docs-guardian:lang-generic` is the fallback for languages without an adapter; output format per doc framework is in the `docs-guardian:fw-*` skills. For Sphinx autodoc and its docstring style, see `docs-guardian:fw-sphinx`.

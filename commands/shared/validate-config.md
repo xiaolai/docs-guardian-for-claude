@@ -1,6 +1,7 @@
 ---
 name: validate-config
 user-invocable: false
+disable-model-invocation: true
 description: Shared config validation step — reads and validates docs-guardian config, stops with init instructions if missing.
 ---
 

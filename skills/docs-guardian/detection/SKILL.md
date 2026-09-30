@@ -1,6 +1,7 @@
 ---
 name: detection
 description: "Use when detecting a project's programming language and documentation framework from filesystem markers — package.json, Cargo.toml, pyproject.toml, mkdocs.yml, etc."
+user-invocable: false
 ---
 
 # Stack Detection
@@ -56,3 +57,7 @@ Confidence levels:
 - `high`: marker file found and unambiguous
 - `medium`: marker found but could be misidentified (e.g., JS project with stale tsconfig)
 - `low`: fallback / guessing
+
+## Scope
+
+Covers picking a project's language and documentation framework from filesystem markers. For matching source files to doc files see `docs-guardian:mapping`; for per-language doc conventions see the `docs-guardian:lang-*` skills (`lang-typescript`, `lang-python`, `lang-go`, `lang-rust`, `lang-generic`); for per-framework conventions see the `docs-guardian:fw-*` skills (`fw-mkdocs`, `fw-vitepress`, `fw-docusaurus`, `fw-sphinx`, `fw-plain-markdown`).

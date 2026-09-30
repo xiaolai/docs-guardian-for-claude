@@ -10,9 +10,9 @@ Run a comprehensive documentation audit by launching 4 specialized agents in par
 ## Reference Skills
 
 Before starting, read these skill files for guidance on standards, detection, and mapping:
-- `skills/docs-guardian/standards/SKILL.md` — severity tags, finding format, metrics
-- `skills/docs-guardian/detection/SKILL.md` — language + framework auto-detection rules
-- `skills/docs-guardian/mapping/SKILL.md` — code-to-doc file mapping strategies
+- `${CLAUDE_PLUGIN_ROOT}/skills/docs-guardian/standards/SKILL.md` — severity tags, finding format, metrics
+- `${CLAUDE_PLUGIN_ROOT}/skills/docs-guardian/detection/SKILL.md` — language + framework auto-detection rules
+- `${CLAUDE_PLUGIN_ROOT}/skills/docs-guardian/mapping/SKILL.md` — code-to-doc file mapping strategies
 
 Use the Read tool to load these files from the plugin install directory. Do NOT use the Skill tool — these are reference skills, not invocable commands.
 
@@ -20,7 +20,7 @@ Use the Read tool to load these files from the plugin install directory. Do NOT 
 
 ### Step 1: Validate Config
 
-Follow `commands/shared/validate-config.md` to read and validate the config. Stop if config is missing or invalid.
+Follow `${CLAUDE_PLUGIN_ROOT}/commands/shared/validate-config.md` to read and validate the config. Stop if config is missing or invalid.
 
 ### Step 2: Resolve Mappings
 

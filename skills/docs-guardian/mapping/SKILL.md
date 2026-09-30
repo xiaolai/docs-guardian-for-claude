@@ -1,6 +1,7 @@
 ---
 name: mapping
 description: "Use when mapping source code files to their documentation counterparts — find which docs cover which code, detect gaps, and resolve doc-to-code relationships."
+user-invocable: false
 ---
 
 # Code-to-Doc Mapping
@@ -56,7 +57,7 @@ If no doc file exists for a source file, record it as **unmapped** (potential co
 
 ## Strategy 4: Inline-Doc (Lowest Priority)
 
-Some symbols are documented inline (docstrings, JSDoc, godoc comments) rather than in separate doc files. When a source file has no external doc mapping but contains inline documentation:
+A source file whose symbols carry docstrings, JSDoc or godoc comments but which has no external doc file is documented inline. When a source file has no external doc mapping but contains inline documentation:
 
 - Still count the inline docs toward coverage
 - Flag as `INFO` that docs are inline-only (not necessarily a problem)
@@ -82,3 +83,7 @@ Return an array of resolved mappings:
   }
 ]
 ```
+
+## Scope
+
+Covers resolving which doc file documents which source file, and recording unmapped files as coverage gaps. Language and framework selection happens earlier, in `docs-guardian:detection`; severity tags, finding format and quality scoring live in `docs-guardian:standards`.

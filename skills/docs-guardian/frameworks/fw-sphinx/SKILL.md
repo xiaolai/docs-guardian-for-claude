@@ -1,6 +1,7 @@
 ---
 name: fw-sphinx
-description: "Use when generating or auditing documentation in Sphinx format — covers config, directory structure, frontmatter conventions, and build commands."
+description: "Use when generating or auditing documentation in Sphinx format — covers detection, config parsing, the doc root, code-to-doc mapping, and the document template."
+user-invocable: false
 ---
 
 # Sphinx Framework Adapter
@@ -143,3 +144,7 @@ Valid Sphinx content — do not flag as quality issues:
 - `.. note::`, `.. warning::`, `.. deprecated::` admonitions
 - Cross-references like `` :func:`mypackage.auth.login` ``
 - MyST `{directive}` syntax in `.md` files
+
+## Scope
+
+Covers Sphinx-specific config, layout, frontmatter and build conventions only. `docs-guardian:detection` decides whether this skill applies; `docs-guardian:mapping` resolves source-to-doc paths; the other frameworks are `docs-guardian:fw-docusaurus`, `docs-guardian:fw-mkdocs`, `docs-guardian:fw-plain-markdown`, `docs-guardian:fw-vitepress`. For the Python docstrings that autodoc renders, see `docs-guardian:lang-python`.

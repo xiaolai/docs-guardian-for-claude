@@ -1,6 +1,7 @@
 ---
 name: fw-plain-markdown
-description: "Use when generating or auditing documentation in plain Markdown format — covers config, directory structure, frontmatter conventions, and build commands."
+description: "Use when generating or auditing documentation in plain Markdown format — covers detection, the doc root, directory conventions, code-to-doc mapping, and the document template."
+user-invocable: false
 ---
 
 # Plain Markdown Framework Adapter
@@ -81,3 +82,7 @@ const result = functionName("hello", 42);
 ## Nav / Sidebar
 
 Plain Markdown has no built-in nav. The entry point is `docs/README.md` or `README.md`. Cross-linking is done via relative markdown links.
+
+## Scope
+
+Covers plain Markdown-specific config, layout, frontmatter and build conventions only. `docs-guardian:detection` decides whether this skill applies; `docs-guardian:mapping` resolves source-to-doc paths; the other frameworks are `docs-guardian:fw-docusaurus`, `docs-guardian:fw-mkdocs`, `docs-guardian:fw-sphinx`, `docs-guardian:fw-vitepress`.

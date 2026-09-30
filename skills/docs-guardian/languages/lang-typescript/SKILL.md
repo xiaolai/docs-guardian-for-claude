@@ -1,6 +1,7 @@
 ---
 name: lang-typescript
 description: "Use when writing, auditing, or generating documentation for TypeScript projects — covers docstring conventions, API doc extraction, and TypeScript-specific patterns."
+user-invocable: false
 ---
 
 # TypeScript Language Adapter
@@ -82,3 +83,7 @@ A TypeScript symbol is **fully documented** when:
 
 Source files: `**/*.ts`, `**/*.tsx`, `**/*.js`, `**/*.jsx`
 Exclude: `node_modules/`, `dist/`, `*.test.*`, `*.spec.*`, `*.d.ts`
+
+## Scope
+
+Covers TypeScript and JavaScript doc-comment conventions and API extraction only. `docs-guardian:detection` selects this adapter; `docs-guardian:lang-generic` is the fallback for languages without an adapter; output format per doc framework is in the `docs-guardian:fw-*` skills.

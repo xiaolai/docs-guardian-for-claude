@@ -1,6 +1,7 @@
 ---
 name: fw-vitepress
-description: "Use when generating or auditing documentation in VitePress format — covers config, directory structure, frontmatter conventions, and build commands."
+description: "Use when generating or auditing documentation in VitePress format — covers detection, config parsing, the doc root, code-to-doc mapping, and the document template."
+user-invocable: false
 ---
 
 # VitePress Framework Adapter
@@ -111,3 +112,7 @@ Valid VitePress content — do not flag as quality issues:
 - `<script setup>` blocks in markdown
 - Custom Vue components (e.g., `<Badge type="warning" />`)
 - YAML frontmatter with VitePress-specific fields (`outline`, `layout`, `hero`)
+
+## Scope
+
+Covers VitePress-specific config, layout, frontmatter and build conventions only. `docs-guardian:detection` decides whether this skill applies; `docs-guardian:mapping` resolves source-to-doc paths; the other frameworks are `docs-guardian:fw-docusaurus`, `docs-guardian:fw-mkdocs`, `docs-guardian:fw-plain-markdown`, `docs-guardian:fw-sphinx`.
