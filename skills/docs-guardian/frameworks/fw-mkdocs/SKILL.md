@@ -1,6 +1,6 @@
 ---
 name: fw-mkdocs
-description: "Use when generating or auditing documentation in MkDocs format — covers detection, config parsing, the doc root, code-to-doc mapping, and the document template."
+description: "MkDocs docs: detection, config parsing, doc root, code-to-doc mapping, template."
 user-invocable: false
 ---
 

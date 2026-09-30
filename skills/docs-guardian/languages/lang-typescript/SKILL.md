@@ -1,6 +1,6 @@
 ---
 name: lang-typescript
-description: "Use when writing, auditing, or generating documentation for TypeScript projects — covers docstring conventions, API doc extraction, and TypeScript-specific patterns."
+description: "TypeScript documentation: doc comment conventions, API doc extraction, TS patterns."
 user-invocable: false
 ---
 

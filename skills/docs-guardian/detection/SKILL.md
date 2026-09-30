@@ -1,6 +1,6 @@
 ---
 name: detection
-description: "Use when detecting a project's programming language and documentation framework from filesystem markers — package.json, Cargo.toml, pyproject.toml, mkdocs.yml, etc."
+description: "Detect language and docs framework from markers like package.json and mkdocs.yml."
 user-invocable: false
 ---
 

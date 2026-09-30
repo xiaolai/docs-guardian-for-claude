@@ -1,6 +1,6 @@
 ---
 name: lang-go
-description: "Use when writing, auditing, or generating documentation for Go projects — covers docstring conventions, API doc extraction, and Go-specific patterns."
+description: "Go documentation: doc comment conventions, API doc extraction, Go-specific patterns."
 user-invocable: false
 ---
 

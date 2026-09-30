@@ -1,6 +1,6 @@
 ---
 name: fw-vitepress
-description: "Use when generating or auditing documentation in VitePress format — covers detection, config parsing, the doc root, code-to-doc mapping, and the document template."
+description: "VitePress docs: detection, config parsing, doc root, code-to-doc mapping, template."
 user-invocable: false
 ---
 

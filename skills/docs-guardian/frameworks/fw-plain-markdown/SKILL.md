@@ -1,6 +1,6 @@
 ---
 name: fw-plain-markdown
-description: "Use when generating or auditing documentation in plain Markdown format — covers detection, the doc root, directory conventions, code-to-doc mapping, and the document template."
+description: "Plain Markdown docs: detection, doc root, layout, code-to-doc mapping, template."
 user-invocable: false
 ---
 

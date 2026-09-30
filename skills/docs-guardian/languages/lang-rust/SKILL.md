@@ -1,6 +1,6 @@
 ---
 name: lang-rust
-description: "Use when writing, auditing, or generating documentation for Rust projects — covers docstring conventions, API doc extraction, and Rust-specific patterns."
+description: "Rust documentation: doc comment conventions, API doc extraction, Rust patterns."
 user-invocable: false
 ---
 

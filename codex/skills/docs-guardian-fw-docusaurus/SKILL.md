@@ -1,6 +1,6 @@
 ---
 name: docs-guardian-fw-docusaurus
-description: Use when generating or auditing documentation in Docusaurus format — covers detection, config parsing, the doc root, code-to-doc mapping, and the document template.
+description: "Docusaurus docs: detection, config parsing, doc root, code-to-doc mapping, template."
 ---
 
 # Docusaurus Framework Adapter

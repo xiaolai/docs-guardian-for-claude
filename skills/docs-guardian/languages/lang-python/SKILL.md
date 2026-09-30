@@ -1,6 +1,6 @@
 ---
 name: lang-python
-description: "Use when writing, auditing, or generating documentation for Python projects — covers docstring conventions, API doc extraction, and Python-specific patterns."
+description: "Python documentation: docstring conventions, API doc extraction, Python patterns."
 user-invocable: false
 ---
 

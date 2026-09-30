@@ -1,6 +1,6 @@
 ---
 name: fw-sphinx
-description: "Use when generating or auditing documentation in Sphinx format — covers detection, config parsing, the doc root, code-to-doc mapping, and the document template."
+description: "Sphinx docs: detection, config parsing, doc root, code-to-doc mapping, template."
 user-invocable: false
 ---
 

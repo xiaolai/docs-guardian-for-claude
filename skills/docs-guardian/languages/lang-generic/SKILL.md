@@ -1,6 +1,6 @@
 ---
 name: lang-generic
-description: "Use when writing, auditing, or generating documentation for projects in unsupported languages — covers docstring conventions, API doc extraction, and generic heuristic patterns."
+description: "Docs for languages with no dedicated skill: docstrings, API extraction, heuristics."
 user-invocable: false
 ---
 

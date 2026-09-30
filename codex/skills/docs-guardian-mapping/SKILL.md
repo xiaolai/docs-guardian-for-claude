@@ -1,6 +1,6 @@
 ---
 name: docs-guardian-mapping
-description: Use when mapping source code files to their documentation counterparts — find which docs cover which code, detect gaps, and resolve doc-to-code relationships.
+description: "Map source files to their docs: which docs cover which code, gaps, doc-to-code links."
 ---
 
 # Code-to-Doc Mapping

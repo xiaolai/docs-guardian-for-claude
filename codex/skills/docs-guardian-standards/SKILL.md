@@ -1,6 +1,6 @@
 ---
 name: docs-guardian-standards
-description: Use when evaluating documentation quality — check completeness, accuracy, freshness, and adherence to project documentation standards.
+description: "Documentation quality standards: completeness, accuracy, freshness, project rules."
 ---
 
 # Documentation Guardian Standards
