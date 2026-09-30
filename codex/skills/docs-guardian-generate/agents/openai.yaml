@@ -1,0 +1,4 @@
+interface:
+  display_name: "Docs Guardian: Generate"
+  short_description: "Write missing docs in the project's doc framework format"
+  default_prompt: "Use $docs-guardian-generate to document the public APIs in src/."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Docs Guardian: Audit"
+  short_description: "Staleness, accuracy, coverage and quality audit with a fixing plan"
+  default_prompt: "Use $docs-guardian-audit to audit this project's documentation."

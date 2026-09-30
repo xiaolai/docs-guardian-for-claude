@@ -39,6 +39,17 @@ Then install:
 | **Project** | `/plugin install docs-guardian@xiaolai --scope project` | Shared with team via `.claude/settings.json` |
 | **Local** | `/plugin install docs-guardian@xiaolai --scope local` | Only you, only this repo |
 
+### Codex CLI
+
+The same repository ships a Codex layout (`.codex-plugin/` and `codex/`):
+
+```bash
+codex plugin marketplace add xiaolai/claude-plugin-marketplace
+codex plugin add docs-guardian@xiaolai
+```
+
+In a Codex session, run `$docs-guardian-init`, then `$docs-guardian-audit`, `$docs-guardian-coverage` or `$docs-guardian-generate`. Both tools share `.claude/docs-guardian/config.json` and the scripts in `scripts/docs-guardian/`. Codex runs the commit hook only after you approve it in its hook trust review (`/hooks`). See `codex/AGENTS.md` for the differences.
+
 ## Quick start
 
 ```bash

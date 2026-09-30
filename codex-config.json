@@ -1,0 +1,15 @@
+{
+  "skillPrefix": "docs-guardian",
+  "interface": {
+    "displayName": "Docs Guardian",
+    "shortDescription": "Find stale, inaccurate and missing docs, then generate what is missing",
+    "longDescription": "Treats documentation like code. Detects the project's language and doc framework, maps source files to their docs, and audits four dimensions — freshness (git timestamps), accuracy (code vs doc mismatches), coverage (undocumented public APIs) and structural quality — into one report with a fixing plan. Can generate missing docs in the project's framework format (Plain Markdown, MkDocs, VitePress, Docusaurus, Sphinx) for Python, TypeScript/JavaScript, Go, Rust and a generic fallback. A PreToolUse hook warns on, or blocks, commits that change code without touching docs. Config is shared with the Claude Code plugin at .claude/docs-guardian/config.json.",
+    "category": "Coding",
+    "capabilities": ["Read", "Write"],
+    "defaultPrompt": [
+      "Use $docs-guardian-init to set up documentation checks for this project.",
+      "Use $docs-guardian-audit to audit this project's documentation.",
+      "Use $docs-guardian-coverage to find undocumented public APIs."
+    ]
+  }
+}

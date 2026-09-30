@@ -1,0 +1,4 @@
+interface:
+  display_name: "Docs Guardian: Init"
+  short_description: "Detect the stack, map code to docs, and set commit-hook strictness"
+  default_prompt: "Use $docs-guardian-init to set up docs-guardian for this project."

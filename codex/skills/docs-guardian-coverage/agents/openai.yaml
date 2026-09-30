@@ -1,0 +1,4 @@
+interface:
+  display_name: "Docs Guardian: Coverage"
+  short_description: "Find undocumented public APIs and report coverage"
+  default_prompt: "Use $docs-guardian-coverage to find undocumented public APIs."

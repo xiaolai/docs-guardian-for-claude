@@ -1,0 +1,17 @@
+{
+  "description": "Codex: guards git commit/push shell commands so documentation is updated alongside source changes. Runs only after the user approves it in Codex's hook trust review.",
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"${PLUGIN_ROOT}/scripts/docs-guardian/commit-guard.js\"",
+            "timeout": 30
+          }
+        ]
+      }
+    ]
+  }
+}

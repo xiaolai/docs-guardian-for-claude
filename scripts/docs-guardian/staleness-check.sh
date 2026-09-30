@@ -17,7 +17,7 @@ CONFIG_PATH="$PROJECT_ROOT/.claude/docs-guardian/config.json"
 
 if [ ! -f "$CONFIG_PATH" ]; then
   echo "Error: Config not found at $CONFIG_PATH" >&2
-  echo "Run /docs-guardian:init first." >&2
+  echo 'Run docs-guardian init first (/docs-guardian:init in Claude Code, $docs-guardian-init in Codex).' >&2
   exit 1
 fi
 
