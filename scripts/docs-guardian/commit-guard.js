@@ -1,168 +1,33 @@
 #!/usr/bin/env node
-
-/**
- * docs-guardian commit guard hook
- *
- * Runs as a PreToolUse hook on Bash commands. Checks if a git commit or push
- * is being attempted and whether staged code files have corresponding doc
- * file changes. Respects hookStrictness from config.
- */
-
-const fs = require("fs");
-const path = require("path");
-const { execSync } = require("child_process");
-
-// Read hook input from stdin
-let input = "";
-try {
-  input = fs.readFileSync("/dev/stdin", "utf8");
-} catch {
-  process.exit(0);
-}
-
-let parsed;
-try {
-  parsed = JSON.parse(input);
-} catch {
-  process.exit(0);
-}
-
-const toolInput = parsed.tool_input || {};
-const command = toolInput.command || "";
-
-// Only intercept git commit and git push commands
-const isCommit = /\bgit\s+commit\b/.test(command);
-const isPush = /\bgit\s+push\b/.test(command);
-
-if (!isCommit && !isPush) {
-  process.exit(0);
-}
-
-// Find project root (walk up looking for .git)
-function findProjectRoot(startDir) {
-  let dir = startDir;
-  while (dir !== path.dirname(dir)) {
-    if (fs.existsSync(path.join(dir, ".git"))) return dir;
-    dir = path.dirname(dir);
-  }
-  return null;
-}
-
-const projectRoot = findProjectRoot(process.cwd());
-if (!projectRoot) {
-  process.exit(0);
-}
-
-// Load config
-const configPath = path.join(
-  projectRoot,
-  ".claude",
-  "docs-guardian",
-  "config.json"
-);
-let config;
-try {
-  config = JSON.parse(fs.readFileSync(configPath, "utf8"));
-} catch {
-  // No config = plugin not initialized for this project
-  process.exit(0);
-}
-
-const strictness = config.hookStrictness || "off";
-if (strictness === "off") {
-  process.exit(0);
-}
-
-// Get staged files
-let stagedFiles;
-try {
-  const output = execSync("git diff --cached --name-only", {
-    cwd: projectRoot,
-    encoding: "utf8",
+'use strict';
+const fs = require('node:fs');
+const path = require('node:path');
+const { git, actions, changedFiles, glob } = require('./git-changes');
+const sourceExtensions = new Set(['.ts','.tsx','.js','.jsx','.mjs','.cjs','.py','.go','.rs','.java','.kt','.cs','.rb','.swift','.c','.cpp','.h']);
+const docExtensions = new Set(['.md','.mdx','.rst','.txt']);
+let input; try { input = JSON.parse(fs.readFileSync(0, 'utf8')); } catch { process.exit(0); }
+const findings = []; let block = false;
+for (const item of actions(String(input.tool_input?.command || ''), input.cwd || process.cwd())) {
+  let root, config;
+  try { root = git(item.cwd, ['rev-parse', '--show-toplevel']).trim(); config = JSON.parse(fs.readFileSync(path.join(root, '.claude/docs-guardian/config.json'), 'utf8')); }
+  catch { continue; }
+  const strictness = config.hookStrictness || 'off'; if (strictness === 'off') continue;
+  let files;
+  try { files = changedFiles(root, item.action, item.args); }
+  catch (error) { findings.push(`[docs-guardian] Could not verify ${item.action} in ${root}: ${error.message.split('\n')[0]}. Run a documentation audit; no pass is recorded.`); block ||= strictness === 'block'; continue; }
+  const exclusions = config.excludePatterns || [];
+  const code = files.filter(f => sourceExtensions.has(path.extname(f)) && !exclusions.some(p => glob(p, f)));
+  const docs = files.filter(f => docExtensions.has(path.extname(f)));
+  const missing = code.filter(file => {
+    const mappings = (config.mappings || []).filter(m => typeof m.source === 'string' && glob(m.source, file));
+    if (!mappings.length) return docs.length === 0;
+    return mappings.some(m => typeof m.doc !== 'string' || !docs.some(doc => glob(m.doc.replaceAll('${name}', path.basename(file, path.extname(file))), doc)));
   });
-  stagedFiles = output.trim().split("\n").filter(Boolean);
-} catch {
-  process.exit(0);
+  if (!missing.length) continue;
+  block ||= strictness === 'block';
+  findings.push(`[docs-guardian] Code files changed without documentation updates (${item.action}, ${root}):\n${missing.map(f => `  - ${f}`).join('\n')}\nUpdate the mapped documentation, or set hookStrictness to "warn". ${!(config.mappings || []).length ? 'No explicit mappings: this is a coarse code/document co-change check, not documentation accuracy verification. ' : ''}Hook strictness: ${['warn','block'].includes(strictness) ? strictness : `unknown hookStrictness "${strictness}" (expected off, warn or block) — treated as warn.`}`);
 }
-
-if (stagedFiles.length === 0) {
-  process.exit(0);
+if (findings.length) {
+  const message = findings.join('\n\n');
+  console.log(JSON.stringify(block ? { hookSpecificOutput: { hookEventName:'PreToolUse', permissionDecision:'deny', permissionDecisionReason:message } } : { systemMessage:message, hookSpecificOutput:{ hookEventName:'PreToolUse', additionalContext:message } }));
 }
-
-// Determine source file extensions based on config or common patterns
-const sourceExtensions = new Set([
-  ".ts",
-  ".tsx",
-  ".js",
-  ".jsx",
-  ".py",
-  ".go",
-  ".rs",
-  ".java",
-  ".kt",
-  ".cs",
-  ".rb",
-  ".swift",
-  ".c",
-  ".cpp",
-  ".h",
-]);
-
-const docExtensions = new Set([".md", ".mdx", ".rst", ".txt"]);
-
-// Separate staged files into code and doc files
-const stagedCodeFiles = stagedFiles.filter((f) =>
-  sourceExtensions.has(path.extname(f))
-);
-const stagedDocFiles = stagedFiles.filter((f) =>
-  docExtensions.has(path.extname(f))
-);
-
-if (stagedCodeFiles.length === 0) {
-  // No code files staged — no doc check needed
-  process.exit(0);
-}
-
-if (stagedDocFiles.length > 0) {
-  // Some doc files are staged — assume user is updating docs
-  process.exit(0);
-}
-
-// Code files changed but no doc files changed
-const known = strictness === "warn" || strictness === "block";
-const message = [
-  "[docs-guardian] Code files changed without documentation updates:",
-  "",
-  ...stagedCodeFiles.map((f) => `  - ${f}`),
-  "",
-  strictness === "block"
-    ? "Update the corresponding documentation and stage it, or set hookStrictness to \"warn\" in .claude/docs-guardian/config.json."
-    : "Consider updating the corresponding documentation.",
-  known
-    ? `Hook strictness: ${strictness}`
-    : `Hook strictness: unknown hookStrictness "${strictness}" (expected off, warn or block) — treated as warn.`,
-].join("\n");
-
-// block: deny, and the model sees the reason. warn (and any unknown value):
-// never emit permissionDecision "allow" — in Claude Code that bypasses the
-// user's permission rules, so a warning would silently pre-approve git commit
-// and push. Emit no decision, so the normal permission flow runs; the user sees
-// systemMessage and the model sees additionalContext.
-const result =
-  strictness === "block"
-    ? {
-        hookSpecificOutput: {
-          hookEventName: "PreToolUse",
-          permissionDecision: "deny",
-          permissionDecisionReason: message,
-        },
-      }
-    : {
-        systemMessage: message,
-        hookSpecificOutput: {
-          hookEventName: "PreToolUse",
-          additionalContext: message,
-        },
-      };
-process.stdout.write(JSON.stringify(result));
-process.exit(0);

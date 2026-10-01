@@ -84,3 +84,31 @@ test("malformed and empty stdin: exits 0 with no output", () => {
     assert.equal(result.stdout, "");
   }
 });
+
+test('Git global -C resolves the target repository, including a path with spaces', { skip }, () => {
+  const dir = repo({ strictness: 'block', staged: ['src/a.ts'] });
+  const out = run(os.tmpdir(), `git -c core.quotePath=false -C "${dir}" commit -m x`);
+  assert.equal(out?.hookSpecificOutput.permissionDecision, 'deny');
+});
+
+test('an unrelated document cannot satisfy an explicit source mapping', { skip }, () => {
+  const dir = repo({ strictness: 'block', staged: ['src/a.ts', 'README.md'] });
+  fs.writeFileSync(path.join(dir, '.claude/docs-guardian/config.json'), JSON.stringify({
+    hookStrictness: 'block', mappings: [{ source: 'src/**/*.ts', doc: 'docs/${name}.md' }],
+  }));
+  assert.equal(run(dir, 'git commit -m x')?.hookSpecificOutput.permissionDecision, 'deny');
+});
+
+test('push checks committed outgoing changes with an empty index', { skip }, () => {
+  const dir = repo({ strictness: 'block', staged: ['README.md'] });
+  const git = (...args) => execFileSync('git', ['-c', 'user.name=Test', '-c', 'user.email=test@example.invalid', ...args], { cwd: dir });
+  git('commit', '-qm', 'base');
+  git('update-ref', 'refs/remotes/origin/main', 'HEAD');
+  git('config', 'remote.origin.url', '/nonexistent/local/remote');
+  git('config', 'remote.origin.fetch', '+refs/heads/*:refs/remotes/origin/*');
+  const branch = git('branch', '--show-current').toString().trim();
+  git('config', `branch.${branch}.remote`, 'origin'); git('config', `branch.${branch}.merge`, 'refs/heads/main');
+  fs.mkdirSync(path.join(dir, 'src')); fs.writeFileSync(path.join(dir, 'src/a.ts'), 'export const a = 1;\n');
+  git('add', 'src/a.ts'); git('commit', '-qm', 'undocumented code');
+  assert.equal(run(dir, 'git push')?.hookSpecificOutput.permissionDecision, 'deny');
+});

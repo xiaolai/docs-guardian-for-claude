@@ -153,3 +153,13 @@ When `hookStrictness` is `warn` or `block`, a PreToolUse hook intercepts `git co
 ## License
 
 ISC
+
+## Commit and push verification
+
+The hook resolves Git global `-C` options and checks that repository's configuration. Commits inspect
+staged files (plus tracked working changes for `-a`); pushes inspect outgoing committed changes against
+local remote-tracking refs, without contacting the remote. Keep those refs current. Multi-ref pushes
+that cannot be resolved are reported as unverified, not passed. Explicit mappings use `source` globs
+and `doc` globs, including `${name}` for the source basename. An unrelated document cannot satisfy
+a mapping. Without mappings, this remains a coarse co-change check rather than proof of accuracy.
+The hook is an accident guard, not a shell sandbox; scripts and Git aliases require independent CI checks.

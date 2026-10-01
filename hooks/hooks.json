@@ -1,5 +1,4 @@
 {
-  "description": "Guards git commit/push commands so documentation is updated alongside source file changes.",
   "hooks": {
     "PreToolUse": [
       {

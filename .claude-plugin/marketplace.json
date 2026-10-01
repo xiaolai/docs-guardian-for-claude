@@ -4,7 +4,7 @@
     "name": "xiaolai"
   },
   "metadata": {
-    "description": "docs-guardian — documentation quality and freshness enforcer, by xiaolai"
+    "description": "docs-guardian \u2014 documentation quality and freshness enforcer, by xiaolai"
   },
   "plugins": [
     {
@@ -14,7 +14,7 @@
         "repo": "xiaolai/docs-guardian-for-claude"
       },
       "description": "Documentation quality and freshness enforcer \u2014 detect staleness, check accuracy, measure coverage, and auto-generate docs across any language and doc framework",
-      "version": "0.2.1",
+      "version": "0.3.0",
       "author": {
         "name": "xiaolai"
       },
